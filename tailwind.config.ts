@@ -1,6 +1,15 @@
 import type { Config } from "tailwindcss";
 
-const config: Config = {
+const config: {
+  plugins: any[];
+  theme: {
+    extend: {
+      backgroundImage: { "gradient-conic": string; "gradient-radial": string };
+      fontSize: { tiny: string; huge: string }
+    }
+  };
+  content: string[]
+} = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -13,6 +22,10 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontSize: {
+        'tiny': '0.625rem',  // Equivalent to 10px
+        'huge': '5rem',       // Equivalent to 80px
+      }
     },
   },
   plugins: [],
